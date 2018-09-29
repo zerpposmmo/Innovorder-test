@@ -1,0 +1,22 @@
+{
+  "name": "Innovorder-test",
+  "version": "1.0.0",
+  "description": "Technical test for Innovorder",
+  "main": "index.js",
+  "repository": "https://github.com/zerpposmmo/Innovorder-test",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.16.3"
+  },
+  "devDependencies": {
+    "mocha": "^5.2.0",
+    "nodemon": "^1.18.4",
+    "sinon": "^6.3.4",
+    "supertest": "^3.3.0"
+  },
+  "scripts": {
+    "start": "node src/index.js",
+    "watch": "nodemon src/index.js",
+    "test": "mocha src/schedule/*"
+  }
+}
