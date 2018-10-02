@@ -16,6 +16,7 @@ class App {
         let middlewareHttp = function (request, response, next) {
             response.setHeader('Api-version', packageJson.version);
             response.setHeader('Accept', 'application/json');
+            response.setHeader('Access-Control-Allow-Origin', '*');
 
             console.log(`${request.method} ${request.originalUrl}`);
             if (request.body && Object.keys(request.body).length >0) {

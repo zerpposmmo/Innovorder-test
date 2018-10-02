@@ -6,7 +6,9 @@
   "repository": "https://github.com/zerpposmmo/Innovorder-test",
   "license": "MIT",
   "dependencies": {
-    "express": "^4.16.3"
+    "express": "^4.16.3",
+    "react": "^16.5.2",
+    "react-dom": "^16.5.2"
   },
   "devDependencies": {
     "mocha": "^5.2.0",
@@ -15,8 +17,8 @@
     "supertest": "^3.3.0"
   },
   "scripts": {
-    "start": "node src/index.js",
-    "watch": "nodemon src/index.js",
+    "start": "node src/server.js",
+    "watch": "nodemon src/server.js",
     "test": "mocha src/schedule/*"
   }
 }

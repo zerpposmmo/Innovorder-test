@@ -117,7 +117,7 @@ describe('Schedule/controller', () => {
             })
     })
 
-    it('PUT /api/schedule', () => {
+    it('PUT /api/schedule/:id', () => {
         const app = (new App()).app;
         let newSchedule = {
             'scheduleId': 4523,
@@ -131,6 +131,26 @@ describe('Schedule/controller', () => {
             .expect(400)
             .then(response => {
                 assert.equal(response.body, 'Start and/or end not a multiple of 15')
+            })
+    })
+
+    it('PUT /api/schedule/', () => {
+        const app = (new App()).app;
+        let newScheduleSet = [
+            {"scheduleId": 4523, "day": "SUN", "start": 15, "end": 300},
+            {"scheduleId": 4524, "day": "SAT", "start": 150, "end": 450},
+            {"scheduleId": 4525, "day": "FRI", "start": 150, "end": 1425},
+            {"scheduleId": 4526, "day": "THU", "start": 150, "end": 1425},
+            {"scheduleId": 4527, "day": "WED", "start": 150, "end": 1425},
+            {"scheduleId": 4528, "day": "TUE", "start": 900, "end": 1425},
+            {"scheduleId": 4529, "day": "MON", "start": 150, "end": 900}
+        ];
+        return request(app)
+            .put('/api/schedule')
+            .send(newScheduleSet)
+            .expect(201)
+            .then(response => {
+                assert.equal(response.body.key, 'entity.updated')
             })
     })
 });

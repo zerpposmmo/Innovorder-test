@@ -46,6 +46,10 @@ class Schedule {
         return await this.updateSchedule(newSchedule)
     }
 
+    async updateScheduleSetAsync(newScheduleSet) {
+        return await this.updateScheduleSet(newScheduleSet)
+    }
+
     getSchedule(id) {
         return this.scheduleSet.find(function (element) {
             return element.scheduleId === parseInt(id);
@@ -102,6 +106,11 @@ class Schedule {
         let scheduleIndex = this.getScheduleIndex(newSchedule.scheduleId);
         this.scheduleSet[scheduleIndex] = newSchedule;
         return this.scheduleSet[scheduleIndex];
+    }
+
+    updateScheduleSet(newScheduleSet) {
+        this.scheduleSet = newScheduleSet;
+        return this.scheduleSet;
     }
 }
 
